@@ -65,6 +65,11 @@ class StartCmd extends Command {
 				$swoole->serverName = SwooleServer::SWOOLE_SERVER_HTTP;
 				$swoole->start($oi);
 				break;
+			case SwooleServer::SWOOLE_SERVER_WS:
+				$swoole             = new WebSocket();
+				$swoole->serverName = SwooleServer::SWOOLE_SERVER_WS;
+				$swoole->start($oi);
+				break;
 			default:
 				throw new \Exception('启动的服务错误');
 		}

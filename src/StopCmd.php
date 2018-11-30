@@ -65,6 +65,11 @@ class StopCmd extends Command
 				$server->serverName = SwooleServer::SWOOLE_SERVER_HTTP;
 				$server->stop($oi);
 				break;
+			case SwooleServer::SWOOLE_SERVER_WS:
+				$server = new WebSocket();
+				$server->serverName = SwooleServer::SWOOLE_SERVER_WS;
+				$server->stop($oi);
+				break;
 			default:
 				throw new \Exception('服务错误');
 		}
